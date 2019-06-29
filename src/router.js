@@ -9,7 +9,15 @@ export default new Router({
       path: '/',
       component: () => import('./views/home/index.vue'),
       children: [
-        { path: 'films', component: () => import('./views/home/films.vue') },
+        {
+          path: 'films',
+          component: () => import('./views/home/films.vue'),
+          children: [
+            { path: 'playing', component: () => import('./views/home/playing.vue') },
+            { path: 'soon', component: () => import('./views/home/soon.vue') },
+            { path: '', redirect: 'playing' }
+          ]
+        },
         {
           path: 'cinemas',
           component: () => import('./views/home/cinemas.vue')
