@@ -28,4 +28,40 @@
   }
 }
 
+@mixin arrow-down {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #333;
+    display: block;
+    margin: -1px 0 0 -4px;
+  }
+}
+
+@mixin arrow-up {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #333;
+    display: block;
+    margin: -1px 0 0 -4px;
+  }
+}
+
 

@@ -6,34 +6,37 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/',
-      component: () => import('./views/home/index.vue'),
+      path: "/",
+      component: () => import("./views/home/index.vue"),
       children: [
         {
-          path: 'films',
-          component: () => import('./views/home/films.vue'),
+          path: "films",
+          component: () => import("./views/home/films.vue"),
           children: [
-            { path: 'playing', component: () => import('./views/home/playing.vue') },
-            { path: 'soon', component: () => import('./views/home/soon.vue') },
-            { path: '', redirect: 'playing' }
+            {
+              path: "playing",
+              component: () => import("./views/home/playing.vue")
+            },
+            { path: "soon", component: () => import("./views/home/soon.vue") },
+            { path: "", redirect: "playing" }
           ]
         },
         {
-          path: 'cinemas',
-          component: () => import('./views/home/cinemas.vue')
+          path: "cinemas",
+          component: () => import("./views/home/cinemas.vue")
         },
         {
-          path: 'center',
-          component: () => import('./views/home/center.vue')
+          path: "center",
+          component: () => import("./views/home/center.vue")
         },
         {
-          path: '',
-          redirect: '/films'
-        },
+          path: "",
+          redirect: "/films"
+        }
       ]
     },
-    { path: '/city', component: () => import('./views/city/index.vue') },
-    { path: '/film', component: () => import('./views/film/index.vue') },
-    { path: '*', redirect: '/' }
+    { path: "/city", component: () => import("./views/city/index.vue") },
+    { path: "/film", component: () => import("./views/film/index.vue") },
+    { path: "*", redirect: "/" }
   ]
 });
