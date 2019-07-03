@@ -12,14 +12,6 @@ export default new Router({
         {
           path: "films",
           component: () => import("./views/home/films.vue"),
-          children: [
-            {
-              path: "playing",
-              component: () => import("./views/home/playing.vue")
-            },
-            { path: "soon", component: () => import("./views/home/soon.vue") },
-            { path: "", redirect: "playing" }
-          ]
         },
         {
           path: "cinemas",
