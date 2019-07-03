@@ -10,7 +10,7 @@ import Top from "@/components/Top/Top.vue";
 export default {
   name: "films",
   components: {
-    Top
+    Top,
   }
 };
 </script>
