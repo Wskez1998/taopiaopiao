@@ -16,7 +16,7 @@ const state = {
 
 const getters = {
   //当前选择的城市的 id
-  curCityId(state){
+  curCityInfo(state){
     return state.cityList.find(item => item.cityId === state.curCityId)
   },
 

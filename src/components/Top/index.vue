@@ -3,7 +3,7 @@
     <div class="top_left">
       <router-link to="/city" tag="div" class="logo">
         <span class="iconfont icon-wode"></span>
-        <i>深圳</i>
+        <i>{{curCityInfo.name}}</i>
         <div></div>
       </router-link>
     </div>
@@ -24,6 +24,12 @@ export default {
       type: String,
       default(){
         return ''
+      }
+    },
+    curCityInfo: {
+      type: Object,
+      default(){
+        return {name: '深圳'}
       }
     }
   }

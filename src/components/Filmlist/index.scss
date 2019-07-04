@@ -1,4 +1,5 @@
 @import "~@/assets/styles/common/mixins.scss";
+@import "~@/assets/styles/common/px2rem.scss";
 .tp-filmlist {
     ul {
       margin-left: 15px;
@@ -8,7 +9,6 @@
         height: 94px;
         position: relative;
         box-sizing: content-box;
-  
         > a {
           display: flex;
           align-items: center;
@@ -16,8 +16,8 @@
   
         .poster {
           flex-shrink: 0;
-          width: 66px;
-          height: 94px;
+          width: px2rem(66);
+          height: px2rem(94);
           background: rgb(249, 249, 249);
           img {
             width: 100%;
@@ -64,10 +64,10 @@
             .label {
               font-size: 13px;
               margin-top: 4px;
-              color: #797d82;
+              color: #666;;
             }
             .grade {
-              color: #ffb232;
+              color: #ff9c1c;
               font-size: 14px;
             }
           }
@@ -90,16 +90,22 @@
         }
   
         .buy {
-          @include border;
+          border: 0;
           flex-shrink: 0;
           line-height: 25px;
           height: 25px;
           width: 50px;
-          color: #ff5f16;
-          font-size: 13px;
+          color: #fff;
+          border-radius: 120px;
+          font-size: 12px;
           text-align: center;
-          border-radius: 2px;
+          border-radius: 120px;
           position: relative;
+          background-image: linear-gradient(45deg,#ff47a8,#ff2e62);
+        }
+
+        .gobuy{
+          background-image: linear-gradient(45deg,#1ab4ff,#1394f3);
         }
       }
     }
