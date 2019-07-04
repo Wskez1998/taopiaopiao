@@ -1,7 +1,7 @@
 <template>
-  <van-list v-model="filmLoading" @load="getFilmList" :finished="isFinished" finished-text="终于让你发现了我的底线...">
+  <van-list ref="filmBox" v-model="filmLoading" @load="getFilmList" :finished="isFinished" finished-text="终于让你发现了我的底线...">
     <div class="films">
-      <Top />
+      <Top :curCityInfo="curCityInfo" />
       <Banner class="banner" :BannerList='BannerList' pagination loop/>
       <van-tabs sticky v-model="curFilmType">
         <van-tab title="正在热映">
@@ -31,14 +31,15 @@ export default {
 
   watch: {
     curFilmType(newVal, oldVal){
-    this.getFilmList(true) 
+      this.$refs.filmBox.$el.scrollTop = 0
+      this.getFilmList(true) 
     }
   },
 
   computed: {
     ...mapState('film', ['BannerList', 'filmList']),
     ...mapGetters('film', ['isFinished']),
-    ...mapGetters('city', ['curCityId']),
+    ...mapGetters('city', ['curCityInfo']),
 
     filmLoading: {
       get(){

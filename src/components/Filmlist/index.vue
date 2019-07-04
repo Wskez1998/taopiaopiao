@@ -1,7 +1,7 @@
 <template>
   <div class="tp-filmlist">
     <ul>
-      <li class="item" v-for="item in FilmList" :key="item.filmId">
+      <li class="item" v-for="(item, index) in FilmList" :key="index">
         <router-link
           :to="{
             name: 'film',
@@ -31,7 +31,7 @@
               class="film-grade info-col"
               style="visibility: visible;"
             >
-              <span class="grade">{{ item.grade }}</span>
+              <span class="grade">{{ Math.ceil(item.filmId / item.runtime) }}</span>
               <span class="label">万人想看</span>
             </div>
             <div class="film-actors info-col">
@@ -44,27 +44,27 @@
               <span class="label">上映日期：{{ item.premiereAt }}</span>
             </div>
           </div>
+          <router-link 
+            tag="div" 
+            class="buy" 
+            v-show="filmType==='nowPlaying'"
+            :to="{
+              name: 'cinemas',
+              params: {
+                filmId: item.filmId
+              }
+            }">购票</router-link>
+          <router-link 
+            tag="div" 
+            class="buy gobuy" 
+            v-show="filmType==='comingSoon'"
+            :to="{
+              name: 'cinemas',
+              params: {
+                filmId: item.filmId
+              }
+            }">预约</router-link>
         </router-link>
-        <router-link 
-          tag="div" 
-          class="buy" 
-          v-show="filmType==='nowPlaying'"
-          :to="{
-            name: 'cinemas',
-            params: {
-              filmId: item.filmId
-            }
-          }">购票</router-link>
-        <router-link 
-          tag="div" 
-          class="buy" 
-          v-show="filmType==='comingSoon'"
-          :to="{
-            name: 'cinemas',
-            params: {
-              filmId: item.filmId
-            }
-          }">预约</router-link>
       </li>
     </ul>
   </div>
@@ -81,7 +81,9 @@ export default {
         return []
       }
     },
-    filmType: String
+    filmType: {
+      type: String,
+    }
   },
 
   filters: {

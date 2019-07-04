@@ -81,7 +81,7 @@ export default {
         })
       }
     },
-    ...mapGetters('city', ['orderCities', 'curCityId', 'hotCity', 'searchList', 'indexList'])
+    ...mapGetters('city', ['orderCities', 'hotCity', 'searchList', 'indexList'])
   },
 
   methods: {

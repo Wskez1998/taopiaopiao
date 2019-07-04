@@ -73,7 +73,11 @@ const actions = {
       });
   },
 
-  getFilmList({commit, state, rootState}){
+  getFilmList({commit, state, rootState}, isChangeFilmType){
+    if (isChangeFilmType) {
+      commit({ type: "setPageNum", num: 1 });
+    }
+
     Toast.loading({ duration: 0, mask: true, message: "正在为主子加载中..." });
     axios
       .get("https://m.maizuo.com/gateway", {
@@ -95,7 +99,9 @@ const actions = {
         if (res.status === 0) {
           commit({
             type: "setFilmList",
-            filmList: [...state.filmList, ...res.data.films],
+            filmList: isChangeFilmType
+              ? res.data.films
+              : [...state.filmList, ...res.data.films],
             total: res.data.total
           });
         } else {
