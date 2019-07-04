@@ -31,15 +31,20 @@
       </div>
 
     </div>
+
+    <Cinemaslist></Cinemaslist>
+
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
+import Cinemaslist from '../../components/Cinemaslist/index'
 export default {
-
-
-
+  name:'cinema',
+  components:{
+    Cinemaslist
+  }
 };
 </script>
 
@@ -101,10 +106,14 @@ export default {
           line-height: px2rem(42);
           font-size: px2rem(14);
           text-align: center;
+          display: flex;
+          justify-content: space-around;
+          >div:nth-child(2){
+            position: relative;
             &::after {
               position: absolute;
               top: 50%;
-              right: 90%;
+              right: 0;
               content: "";
               width: 0;
               height: 0;
@@ -113,6 +122,7 @@ export default {
               border-top: 4px solid #333;
               display: block;
               margin: -1px 0 0 -4px;
+            }
           }
         }
       }

@@ -99,3 +99,22 @@
   }
 }
 
+@mixin info {
+  position: relative;
+
+  &::after{
+    content: "";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    transform: scale(.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(52,156,236,.4);
+    border-radius: 4px;
+    pointer-events: none;
+    transform-origin: 0 0;
+  }
+}

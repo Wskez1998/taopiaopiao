@@ -68,7 +68,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('film', ['getBannerList', 'getFilmList'])
+    ...mapActions('film', ['getBannerList', 'getFilmList']),
   },
 
   created() {
