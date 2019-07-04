@@ -28,6 +28,22 @@
   }
 }
 
+@mixin border {
+  position: relative;
+
+  &::after {
+    content: " ";
+    transform: scale(0.5);
+    position: absolute;
+    border: 1px solid #ff5f16;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    border-radius: 4px;
+  }
+}
+
 @mixin arrow-down {
   position: relative;
 

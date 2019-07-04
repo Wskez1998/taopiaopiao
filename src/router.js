@@ -10,10 +10,12 @@ export default new Router({
       component: () => import("./views/home/index.vue"),
       children: [
         {
+          name: 'films',
           path: "films",
           component: () => import("./views/home/films.vue"),
         },
         {
+          name: 'cinemas',
           path: "cinemas",
           component: () => import("./views/home/cinemas.vue")
         },
@@ -28,7 +30,11 @@ export default new Router({
       ]
     },
     { path: "/city", component: () => import("./views/city/index.vue") },
-    { path: "/film", component: () => import("./views/film/index.vue") },
+    { 
+      name: 'film',
+      path: "/film", 
+      component: () => import("./views/film/index.vue") 
+    },
     { path: "*", redirect: "/" }
   ]
 });
