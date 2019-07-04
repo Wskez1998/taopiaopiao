@@ -1,0 +1,117 @@
+.cinemas-list{
+    .cinema-list-ul{
+        .list-item{
+            width: 100%;
+            height: px2rem(98);
+            padding: 0 px2rem(20);
+            box-sizing: border-box;
+            >a{
+                display: block;
+                height: 100%;
+                color: #000;
+            }
+
+            .list-title-warper{
+                margin-top: px2rem(20); 
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: px2rem(6); 
+                .list-title-left{
+                    width: px2rem(280);
+                    height: px2rem(26);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    .list-title{
+                        width: px2rem(280);
+                        height: px2rem(26);
+                        font-size: px2rem(18);
+                        font-weight: normal;
+                    }
+                }
+
+                .list-price{
+                    display: block;
+                    width: px2rem(60);
+                    height: px2rem(26);
+                    line-height: px2rem(26);
+                    color: #ff2e62;
+                    font-size: px2rem(14);
+                    font-weight: 400;
+                    .primary-normal{
+                        color: #aaaaaa;
+                    }
+                }
+            }
+
+            .list-address{
+                width: px2rem(300);
+                height: px2rem(20);
+                line-height: px2rem(20);
+                .list-location{
+                    font-size: px2rem(14);
+                    color: #666;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .list-status{
+                width: 100%;
+                height: px2rem(24);
+                .tpp-lbl{
+                    display: inline-block;
+                    text-align: center;
+                    vertical-align: middle;
+                    user-select: none;
+                    color: #fff;
+                    background-color: #999;
+                    position: relative;
+                    font-size: px2rem(12);
+                    font-style: normal;
+                    font-weight: 400;
+                    white-space: nowrap;
+                    height: px2rem(15);
+                    line-height: px2rem(15);
+                    padding: 0 px2rem(3);
+                    border-radius: px2rem(2);
+                    margin-right: px2rem(10);
+                }
+                .tpp-lbl-outline-info{
+                    @include info;
+                    color: #349cec;
+                    background-color: transparent;
+                    position: relative;
+                }
+            }
+
+            .list-activity{
+                width: 100%;
+                height: px2rem(16);
+                line-height: px2rem(14);
+                .activity-item{
+                    display: flex;
+                    margin-top:px2rem(4); 
+                    .newsmovie{
+                        display: block;
+                        width: px2rem(14);
+                        height: px2rem(14);
+                        line-height: px2rem(14);
+                        text-align: center;
+                        font-size: px2rem(12);
+                        color: #fff;
+                        background: #fe7a4c;
+                        border-radius: px2rem(2);
+                        margin-right: px2rem(4);
+                    }
+                    .newtext{
+                        font-size: px2rem(12);
+                        color: #999;
+                    }
+                }
+            }
+
+        }
+    }
+}

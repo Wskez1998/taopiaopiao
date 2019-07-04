@@ -3,7 +3,7 @@
     <div class="cinemas-topbar">
 
       <router-link to="/city" tag="div" class="container-citybar">
-        <div class="cityname">北京</div>
+        <div class="cityname">{{curCityInfo && curCityInfo.name}}</div>
         <div class="selector-i-arrow"></div>
       </router-link>
 
@@ -31,20 +31,28 @@
       </div>
 
     </div>
-
-    <Cinemaslist></Cinemaslist>
-
+    <Cinemaslist class="list" :cinemaList="cinemaList"></Cinemaslist>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions ,mapGetters } from 'vuex';
 import Cinemaslist from '../../components/Cinemaslist/index'
 export default {
   name:'cinema',
+  computed:{
+    ...mapState('cinema',['cinemaList']),
+    ...mapGetters('city',['curCityInfo'])
+  },
+  methods:{
+    ...mapActions('cinema',['getCinemaList'])
+  },
+  created(){
+    this.getCinemaList();
+  },
   components:{
     Cinemaslist
-  }
+  },
 };
 </script>
 
@@ -52,8 +60,14 @@ export default {
 @import '~@/assets/styles/common/px2rem.scss';
 @import '~@/assets/styles/common/mixins.scss';
 .page-home-cinemas{
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
+
+  .list{
+    flex: 1;
+    overflow-y: auto; 
+  }
+
   .cinemas-topbar{
     @include border-bottom;
     width: 100%;
