@@ -1,3 +1,5 @@
+@import '~@/assets/styles/common/px2rem.scss';
+
 @mixin border-top {
   position: relative;
 
@@ -80,4 +82,20 @@
   }
 }
 
+@mixin border-left {
+  position: relative;
+
+  &::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: px2rem(25);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #e2e2e2;
+    transform: scaleX(.5);
+  }
+}
 
