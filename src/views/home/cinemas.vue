@@ -9,7 +9,7 @@
 
       <div class="topbar-container">
 
-        <div class="selector-all-time">
+        <!-- <div class="selector-all-time">
           <div class="selector-nowcity all-item-style">
             <div>全城</div>
             <div></div>
@@ -22,10 +22,16 @@
             <div>特色</div>
             <div></div>
           </div>
-        </div>
+        </div> -->
+
+        <van-dropdown-menu active-color="#ff2e62">
+          <van-dropdown-item v-model="value1" :options="AddressCinema" />
+          <van-dropdown-item v-model="value2" :options="option2" />
+          <van-dropdown-item v-model="value3" :options="option3" />
+        </van-dropdown-menu>
 
         <div class="selector-search">
-          放大镜
+          放大
         </div>
 
       </div>
@@ -40,15 +46,37 @@ import { mapState, mapActions ,mapGetters } from 'vuex';
 import Cinemaslist from '../../components/Cinemaslist/index'
 export default {
   name:'cinema',
+  data() {
+    return {
+      value1: 0,
+      value2: 'a',
+      value3: 'b',
+      option1: [
+        { text: '全城', value: 0 },
+        { text: '宝安区', value: 1 },
+        { text: '龙华区', value: 2 }
+      ],
+      option2: [
+        { text: 'APP订票', value: 'a' },
+        { text: '前台兑换', value: 'b' },
+      ],
+      option3: [
+        { text: '最近去过', value: 'a' },
+        { text: '离我最近', value: 'b' },
+      ],
+    }
+  },
   computed:{
     ...mapState('cinema',['cinemaList']),
+    ...mapGetters('cinema',['AddressCinema']),
     ...mapGetters('city',['curCityInfo'])
   },
   methods:{
     ...mapActions('cinema',['getCinemaList'])
   },
-  created(){
+  mounted(){
     this.getCinemaList();
+    console.log(this.AddressCinema)
   },
   components:{
     Cinemaslist
@@ -110,40 +138,19 @@ export default {
       align-items: center;
       justify-content: space-between;
 
-      .selector-all-time{
-        display: flex;
-          .all-item-style{
-          @include border-left;
-          justify-content: space-around;
-          width: px2rem(75);
-          height: px2rem(42);
-          line-height: px2rem(42);
-          font-size: px2rem(14);
-          text-align: center;
-          display: flex;
-          justify-content: space-around;
-          >div:nth-child(2){
-            position: relative;
-            &::after {
-              position: absolute;
-              top: 50%;
-              right: 0;
-              content: "";
-              width: 0;
-              height: 0;
-              border-left: 4px solid transparent;
-              border-right: 4px solid transparent;
-              border-top: 4px solid #333;
-              display: block;
-              margin: -1px 0 0 -4px;
-            }
-          }
-        }
+      .van-dropdown-menu{
+        // width: 100%;
+        flex: 1;
+        height: px2rem(42);
+        font-size: px2rem(12);
       }
       
       .selector-search{
-        flex: 1;
+        width: px2rem(42);
+        height: px2rem(42);
         font-size: px2rem(12);
+        text-align: center;
+        line-height: px2rem(42);
       }
 
     } 

@@ -6,7 +6,27 @@ const state = {
 }
 
 const getters = {
-
+    AddressCinema(state){
+        let result = [];
+        state.cinemaList.forEach(cinema=>{
+            let newDistrictId = cinema.districtId;
+            let newDistrictName = cinema.districtName;
+            let newCinemaId = cinema.cinemaId;
+            let index = result.findIndex(item=>item.newDistrictId === newDistrictId);
+            if(index>-1){
+                result[index].list.push(cinema);
+            }else{
+                let obj = {
+                    text: newDistrictName,
+                    value: newCinemaId,
+                    newDistrictId,
+                    list:[cinema]
+                }
+                result.push(obj)
+            }
+        });
+        return result;
+    }
 }
 
 const mutations = {
