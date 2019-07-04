@@ -9,7 +9,7 @@ const state = {
   filmLoading: false, //影片列表加载状态
   curFilmType: 0, //处于正在上映还是即将上映
   pageNum: 1, //当前页数
-  pageSize: 10, //一次性加载多少条
+  pageSize: 20, //一次性加载多少条
   total: 1 //总的条数
 };
 
@@ -40,7 +40,7 @@ const mutations = {
   },
 
   setFilmList(state, payload){
-    state.filmList = payload.filmList
+    state.filmList = payload.List
     state.total = payload.total
   },
 
@@ -99,7 +99,7 @@ const actions = {
         if (res.status === 0) {
           commit({
             type: "setFilmList",
-            filmList: isChangeFilmType
+            List: isChangeFilmType
               ? res.data.films
               : [...state.filmList, ...res.data.films],
             total: res.data.total

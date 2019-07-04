@@ -35,6 +35,11 @@ export default new Router({
       path: "/film", 
       component: () => import("./views/film/index.vue") 
     },
+    {
+      name: 'login',
+      path: '/login',
+      component: () => import("./views/login/index.vue")
+    },
     { path: "*", redirect: "/" }
   ]
 });

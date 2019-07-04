@@ -1,0 +1,56 @@
+@import '~@/assets/styles/common/px2rem.scss';
+@import '~@/assets/styles/common/mixins.scss';
+
+.tp-login{
+    overflow: hidden;
+    height: 100%;
+    .logo{
+        width: px2rem(80);
+        height: px2rem(80);
+        background: url(https://gw.alicdn.com/tfs/TB1p.BGQXXXXXbFXFXXXXXXXXXX-160-160.png) no-repeat;
+        background-size: contain;
+        margin: px2rem(40) auto 0;
+    }
+    .loginForm{
+        width: px2rem(329);
+        margin: 0 auto;
+        color: #333;
+        border: 0;
+        &::after{
+            display: none
+        }
+        .van-cell{
+            margin: px2rem(45) 0 0;
+            width: 100%;
+            border-bottom: 1px solid #ff5000;
+            font-size: 16px;
+            color: #333;
+        }
+    }
+    .otherLink{
+        margin: px2rem(22) auto 0;
+        font-size: 14px;
+        width: px2rem(329);
+        display: flex;
+        justify-content: space-between;
+        a{
+            color: #555;
+        }
+    }
+    .fildButton{
+        margin: px2rem(35) auto 0;
+        width: px2rem(329);
+        .btn-submit{
+            background: -webkit-linear-gradient(left,#ff9000,#ff5000) no-repeat;
+            color: #fff;
+            box-shadow: 0 0.08rem 0.16rem #f7c7b1;
+            width: 100%;
+            font-size: 16px;
+            height: px2rem(43);
+            line-height: px2rem(43);
+            border: 0;
+            border-radius: 25px;
+            text-align: center;
+        }
+    }
+}
