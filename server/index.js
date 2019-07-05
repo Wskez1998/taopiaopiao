@@ -1,31 +1,31 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const multer = require('multer')
+const express = require('express');
+const mongoose = require('mongoose');
+const multer = require('multer');
 const update = multer({
     dest: './tmp'
 });
-const url = "mongodb://127.0.0.1:27017/taopp"
+const url = "mongodb://127.0.0.1:27017/taopp";
 //引入controllers
-const userController = require('./controllers/user')
-const server = express()
+const userController = require('./controllers/user.js');
+const server = express();
 //连接 mongodb 
 mongoose
     .connect(url, { useNewUrlParser: true })
     .then(() => {
-        console.log("连接数据库成功 🤟")
+        console.log("连接数据库成功 🤟");
     })
     .catch(error => {
-        console.log(error)
-        console.log("连接数据库失败 ☠")
+        console.log(error);
+        console.log("连接数据库失败 ☠");
     })
 
-//各种中间件的使用与配置
+
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(express.static("public"));
 server.use((req, res, next) => {
   res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Headers", "content-type");
+  res.set("Access-Control-Allow-Headers","content-type");
   next();
 });
 
@@ -38,4 +38,4 @@ server.post(
   userController.postUpdAvatar
 );
 
-server.listen(7777)
+server.listen(7777);

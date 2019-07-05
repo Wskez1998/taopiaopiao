@@ -32,10 +32,8 @@
         font-size: 14px;
         width: px2rem(329);
         display: flex;
+        color: #555;
         justify-content: space-between;
-        a{
-            color: #555;
-        }
     }
     .fildButton{
         margin: px2rem(35) auto 0;
@@ -51,6 +49,10 @@
             border: 0;
             border-radius: 25px;
             text-align: center;
+            &[disabled] {
+                box-shadow: none;
+                background: #ccc;
+            }
         }
     }
 }
