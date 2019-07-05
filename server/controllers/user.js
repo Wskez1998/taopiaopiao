@@ -1,6 +1,6 @@
-const UserModel = require('../models/User')
+const UserModel = require('../models/User');
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 
 //登录
 const postSignIn = (req, res) => {
@@ -29,7 +29,7 @@ const postSignIn = (req, res) => {
                 msg: error.message
             })
         })
-}
+};
 
 //注册
 const postSignUp = (req, res) => {
@@ -48,7 +48,7 @@ const postSignUp = (req, res) => {
             msg: error.message
         });
     });
-}
+};
 
 //更换头像
 const postUpdAvatar = (req, res) => {
@@ -57,7 +57,7 @@ const postUpdAvatar = (req, res) => {
     let fileData = fs.readFileSync(req.file.path);
     fs.writeFileSync(newPath, fileData);
     let userId = req.body.userId;
-    let newAvatar = `http://localhost:9090/${newFileName}`;
+    let newAvatar = `http://localhost:7777/${newFileName}`;
     UserModel.updateOne(
       {
         _id: userId
@@ -87,3 +87,9 @@ const postUpdAvatar = (req, res) => {
         });
       });
   };
+
+module.exports = {
+  postSignIn,
+  postSignUp,
+  postUpdAvatar
+}

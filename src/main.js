@@ -16,6 +16,19 @@ Vue.use(Tab)
   .use(CellGroup)
   .use(Skeleton);
 
+  router.beforeEach((to, from, next) => {
+    // to and from are both route objects. must call `next`.
+    if(to.meta.isLogined && !store.state.user.userInfo) {
+      return next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    }
+    next()
+  })
+
 new Vue({
   el: "#app",
   router,
