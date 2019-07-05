@@ -1,0 +1,103 @@
+@import "~@/assets/styles/common/mixins.scss";
+@import "~@/assets/styles/common/px2rem.scss";
+
+.cinema-address{
+    min-height: px2rem(500);
+    padding: px2rem(44) px2rem(15);
+    background-color: #fff;
+
+    .cna-ads-header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        z-index: 3000;
+        background-color: #fff;
+        display: flex;
+        .cna-ads-goback{
+            min-width: 15%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 15px;
+            font-size: px2rem(16);
+            color: #666666;
+        }
+    }
+
+    .cinemaName{
+        font-size: px2rem(17);
+        color: #191a1b;
+        text-align: center;
+        margin: 0;
+        margin-top: px2rem(10);
+        font-weight: 400;
+    }
+
+    .address{
+        display: flex;
+        align-items: center;
+        padding: px2rem(15) 0;
+        margin-top: px2rem(25);
+        // @include border-top;
+        // @include border-bottom;
+        border-top: 1px solid #ededed;
+        border-bottom: 1px solid #ededed;
+        
+        .iconleft{
+            display: inline-block;
+            width: px2rem(18);
+            height: px2rem(18);
+        }
+        .cna-address{
+            font-size: px2rem(14);
+            display: inline-block;
+            width: px2rem(288);
+            margin-left: px2rem(9);
+            margin-right: px2rem(10);
+            color: #191a1b;
+            line-height: px2rem(18);
+        }
+        .jiantou{
+            display: inline-block;
+            // width: 4px;
+            // height: 8px;
+            width: px2rem(18);
+            height: px2rem(18);
+        }
+    }
+
+    .tel{
+        display: flex;
+        align-items: center;
+        padding: px2rem(15) 0;
+        border-bottom: 1px solid #ededed;
+
+        .tel-iconleft{
+            display: inline-block;
+            width: px2rem(18);
+            height: px2rem(18);
+        }
+        .cna-tel{
+            font-size: px2rem(14);
+            display: inline-block;
+            width: px2rem(288);
+            margin-left: px2rem(9);
+            margin-right: px2rem(10);
+            color: #191a1b;
+        }
+        .tel-jiantou{
+            display: inline-block;
+            // width: 4px;
+            // height: 8px;
+            width: px2rem(18);
+            height: px2rem(18);
+        }
+    }
+
+}

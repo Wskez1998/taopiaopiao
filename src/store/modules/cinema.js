@@ -3,26 +3,27 @@ import { Toast } from 'vant';
 
 const state = {
     cinemaList: [],
+    curValue:0,
 }
 
 const getters = {
     AddressCinema(state){
-        let result = [];
+        let result = [{ list: state.cinemaList, text: '全部' ,value: 0}];
         state.cinemaList.forEach(cinema=>{
             let newDistrictId = cinema.districtId;
             let newDistrictName = cinema.districtName;
-            let newCinemaId = cinema.cinemaId;
             let index = result.findIndex(item=>item.newDistrictId === newDistrictId);
+
             if(index>-1){
                 result[index].list.push(cinema);
             }else{
                 let obj = {
                     text: newDistrictName,
-                    value: newCinemaId,
+                    value: result.length,
                     newDistrictId,
                     list:[cinema]
                 }
-                result.push(obj)
+                result.push(obj);
             }
         });
         return result;
@@ -32,6 +33,9 @@ const getters = {
 const mutations = {
     setCinemaList(state,payload){
         state.cinemaList = payload.list
+    },
+    setCurValue(state,payload){
+        state.curValue = payload.value
     }
 }
 
@@ -41,7 +45,7 @@ const actions = {
         axios.get('https://m.maizuo.com/gateway',{
             params:{
                 cityId: rootState.city.curCityId,
-                ticketFlag: 1,
+                ticketFlag: state.curValue === 0? 1:2,
                 k:1022069
             },
             headers:{

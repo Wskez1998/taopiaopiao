@@ -36,9 +36,14 @@ export default new Router({
       component: () => import("./views/film/index.vue") 
     },
     {
-      path:'cinema/:id',
-      name:'cinema',
+      path:'/cinema/:id/film',
+      name:'cinemamoney',
       component:()=>import('./views/cinema/index.vue'),
+    },
+    {
+      path:'/cinema/:id',
+      name:'cinemaaddress',
+      component:()=>import('./views/cinema/cinemaAddress.vue')
     },
     {
       name: 'login',

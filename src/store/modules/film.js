@@ -1,7 +1,5 @@
 import axios from 'axios'
-import {
-  Toast
-} from 'vant'
+import { Toast } from 'vant'
 
 const state = {
   BannerList: [],

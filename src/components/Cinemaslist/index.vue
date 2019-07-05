@@ -2,17 +2,21 @@
     <div class="cinemas-list">
         <ul class="cinema-list-ul">
             <li class="list-item" v-for="item in cinemaList" :key="item.cinemaId">
-                <router-link to="">
+                <!-- <router-link :to="'/cinema/'+item.cinemaId+'/film'"> -->
+                <router-link :to="curValue==0?'/cinema/'+item.cinemaId+'/film':'/cinema/'+item.cinemaId">
                     <h3 class="list-title-warper">
                         <div class="list-title-left">
                             <span class="list-title">{{item.name}}</span>
                         </div>
-                        <span class="list-price">
+                        <span class="list-price" v-if="curValue===0">
                             {{item.lowPrice | getlowPrice}}
                             <span class="primary-color">
                                 元
                                 <span class="primary-normal">起</span>
                             </span>
+                        </span>
+                        <span class="list-price" v-else>
+                            {{item.districtName}}
                         </span>
                     </h3>
                     <div class="list-address">
@@ -53,6 +57,12 @@ export default {
             type:Array,
             default(){
                 return [];
+            }
+        },
+        curValue:{
+            type:Number,
+            default(){
+                return 1;
             }
         }
     },

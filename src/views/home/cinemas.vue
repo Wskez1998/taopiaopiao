@@ -25,8 +25,8 @@
         </div> -->
 
         <van-dropdown-menu active-color="#ff2e62">
-          <van-dropdown-item v-model="value1" :options="AddressCinema" />
-          <van-dropdown-item v-model="value2" :options="option2" />
+          <van-dropdown-item v-model="value1" @change="gotTop" :options="AddressCinema" />
+          <van-dropdown-item v-model="curValue" @change="getCinemaList" :options="option2" />
           <van-dropdown-item v-model="value3" :options="option3" />
         </van-dropdown-menu>
 
@@ -37,7 +37,7 @@
       </div>
 
     </div>
-    <Cinemaslist class="list" :cinemaList="cinemaList"></Cinemaslist>
+    <Cinemaslist ref="list" class="list" :curValue="curValue" :cinemaList="theCinemaList"></Cinemaslist>
   </div>
 </template>
 
@@ -49,34 +49,54 @@ export default {
   data() {
     return {
       value1: 0,
-      value2: 'a',
-      value3: 'b',
+      value3: 0,
       option1: [
         { text: '全城', value: 0 },
         { text: '宝安区', value: 1 },
         { text: '龙华区', value: 2 }
       ],
       option2: [
-        { text: 'APP订票', value: 'a' },
-        { text: '前台兑换', value: 'b' },
+        { text: 'APP订票', value: 0 },
+        { text: '前台兑换', value: 1 },
       ],
       option3: [
-        { text: '最近去过', value: 'a' },
-        { text: '离我最近', value: 'b' },
+        { text: '最近去过', value: 0 },
+        { text: '离我最近', value: 1 },
       ],
     }
   },
   computed:{
-    ...mapState('cinema',['cinemaList']),
+    ...mapState('cinema',['cinemaList' , 'curValue']),
     ...mapGetters('cinema',['AddressCinema']),
-    ...mapGetters('city',['curCityInfo'])
+    ...mapGetters('city',['curCityInfo']),
+    theCinemaList(){
+      return this.AddressCinema[this.value1].list
+    },
+    curValue: {
+      get(){
+        return this.$store.state.cinema.curValue;
+      },
+      set(value){
+        this.$store.commit({
+          type:'cinema/setCurValue',
+          value
+        })
+      }
+    }
+  },
+  watch:{
+    curValue(newVal,oldVal){
+      this.$refs.list.$el.scrollTop = 0;
+    }
   },
   methods:{
-    ...mapActions('cinema',['getCinemaList'])
+    ...mapActions('cinema',['getCinemaList']),
+    gotTop(){
+      this.$refs.list.$el.scrollTop = 0;
+    }
   },
   mounted(){
     this.getCinemaList();
-    console.log(this.AddressCinema)
   },
   components:{
     Cinemaslist
@@ -143,6 +163,15 @@ export default {
         flex: 1;
         height: px2rem(42);
         font-size: px2rem(12);
+        .van-dropdown-menu__title{
+          width: px2rem(76);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &::after{
+            right: px2rem(6);
+          }
+        }
       }
       
       .selector-search{
