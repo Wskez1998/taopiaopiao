@@ -1,23 +1,28 @@
 <template>
-    <div class="cinema-address">
-        <div class="cna-ads-header">
-            <router-link to="" tag="div" class="cna-ads-goback">返回</router-link>
-        </div>
-        <h1 class="cinemaName">{{ addressList.name }}</h1>
-        <div class="address">
-            <i class="iconfont icon-wode iconleft"></i>
-            <span class="cna-address">{{ addressList.address }}</span>
-            <i class="iconfont icon-wode jiantou"></i>
-        </div>
-        <div class="tel">
-            <i class="iconfont icon-wode tel-iconleft"></i>
-            <span class="cna-tel">{{ addressList.phone }}</span>
-            <i class="iconfont icon-wode tel-jiantou"></i>
-        </div>
+    <van-skeleton
+        :row="8"
+        :loading="loading"
+        :animate="animate"
+    >
+        <div class="cinema-address">
+            <div class="cna-ads-header">
+                <div @click="goBackadd" class="cna-ads-goback">返回</div>
+            </div>
+            <h1 class="cinemaName">{{ addressList.name }}</h1>
+            <div class="address">
+                <i class="iconfont icon-wode iconleft"></i>
+                <span class="cna-address">{{ addressList.address }}</span>
+                <i class="iconfont icon-wode jiantou"></i>
+            </div>
+            <div class="tel">
+                <i class="iconfont icon-wode tel-iconleft"></i>
+                <span class="cna-tel">{{ addressList.phone }}</span>
+                <i class="iconfont icon-wode tel-jiantou"></i>
+            </div>
 
-        <Tag :services='addressList.services' />
-    </div>
-
+            <Tag :services='addressList.services' />
+        </div>
+    </van-skeleton>
 </template>
 
 <script>
@@ -28,14 +33,28 @@ export default {
     components:{
         Tag
     },
+    data(){
+        return{
+            loading:true,
+            animate:true
+        }
+    },
     computed:{
         ...mapState('address',['addressList']),
     },
     methods:{
         ...mapActions('address',['getAddress']),
+        goBackadd(){
+            this.$router.go(-1);
+        }
+    },
+    created(){
+        this.getAddress();
     },
     mounted(){
-        this.getAddress();
+        setTimeout(() => {
+            this.loading = false;
+        }, 500);
     }
 }
 </script>

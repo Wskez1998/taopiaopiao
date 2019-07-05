@@ -2,7 +2,7 @@ import Vue from "vue";
 import router from "./router";
 import store from "./store/index";
 import App from "./App";
-import { Tab, Tabs, Toast, List, Search, DropdownMenu, DropdownItem ,Field, CellGroup } from "vant";
+import { Tab, Tabs, Toast, List, Search, DropdownMenu, DropdownItem ,Field, CellGroup, Skeleton  } from "vant";
 import "./assets/styles/base.scss";
 
 Vue.use(Tab)
@@ -13,7 +13,8 @@ Vue.use(Tab)
   .use(DropdownMenu)
   .use(DropdownItem)
   .use(Field)
-  .use(CellGroup);
+  .use(CellGroup)
+  .use(Skeleton);
 
 new Vue({
   el: "#app",

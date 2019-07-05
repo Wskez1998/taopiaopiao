@@ -1,60 +1,40 @@
 <template>
-  <div class="page-home-cinemas">
-    <div class="cinemas-topbar">
+    <div class="page-home-cinemas">
+      <div class="cinemas-topbar">
 
-      <router-link to="/city" tag="div" class="container-citybar">
-        <div class="cityname">{{curCityInfo && curCityInfo.name}}</div>
-        <div class="selector-i-arrow"></div>
-      </router-link>
+        <router-link to="/city" tag="div" class="container-citybar">
+          <div class="cityname">{{curCityInfo && curCityInfo.name}}</div>
+          <div class="selector-i-arrow"></div>
+        </router-link>
 
-      <div class="topbar-container">
+        <div class="topbar-container">
 
-        <!-- <div class="selector-all-time">
-          <div class="selector-nowcity all-item-style">
-            <div>全城</div>
-            <div></div>
+          <van-dropdown-menu active-color="#ff2e62">
+            <van-dropdown-item v-model="value1" @change="gotTop" :options="AddressCinema" />
+            <van-dropdown-item v-model="curValue" @change="getCinemaList" :options="option2" />
+            <van-dropdown-item v-model="value3" :options="option3" />
+          </van-dropdown-menu>
+
+          <div class="selector-search">
+            放大
           </div>
-          <div class="selector-sort all-item-style">
-            <div>综合排序</div>
-            <div></div>
-          </div>
-          <div class="selector-self all-item-style">
-            <div>特色</div>
-            <div></div>
-          </div>
-        </div> -->
 
-        <van-dropdown-menu active-color="#ff2e62">
-          <van-dropdown-item v-model="value1" @change="gotTop" :options="AddressCinema" />
-          <van-dropdown-item v-model="curValue" @change="getCinemaList" :options="option2" />
-          <van-dropdown-item v-model="value3" :options="option3" />
-        </van-dropdown-menu>
-
-        <div class="selector-search">
-          放大
         </div>
 
       </div>
-
+      <Cinemaslist ref="list" class="list" :curValue="curValue" :cinemaList="theCinemaList"></Cinemaslist>
     </div>
-    <Cinemaslist ref="list" class="list" :curValue="curValue" :cinemaList="theCinemaList"></Cinemaslist>
-  </div>
 </template>
 
 <script>
 import { mapState, mapActions ,mapGetters } from 'vuex';
 import Cinemaslist from '../../components/Cinemaslist/index'
 export default {
-  name:'cinema',
+  name:'cinemas',
   data() {
     return {
       value1: 0,
       value3: 0,
-      option1: [
-        { text: '全城', value: 0 },
-        { text: '宝安区', value: 1 },
-        { text: '龙华区', value: 2 }
-      ],
       option2: [
         { text: 'APP订票', value: 0 },
         { text: '前台兑换', value: 1 },
@@ -95,7 +75,7 @@ export default {
       this.$refs.list.$el.scrollTop = 0;
     }
   },
-  mounted(){
+  created(){
     this.getCinemaList();
   },
   components:{

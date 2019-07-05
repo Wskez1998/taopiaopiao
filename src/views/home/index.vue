@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <router-view />
+    <keep-alive :include="['cinemas']">
+      <router-view></router-view>
+    </keep-alive>
     <Tabbar :tabs="tabs" />
   </div>
 </template>
@@ -8,7 +10,7 @@
 <script>
 import Tabbar from "@/components/Tabbar";
 export default {
-  name: "index",
+  name: "home",
   data() {
     return {
       tabs: [

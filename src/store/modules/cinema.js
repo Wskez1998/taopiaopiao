@@ -58,7 +58,8 @@ const actions = {
                 commit({
                     type:'setCinemaList',
                     list:res.data.cinemas
-                })
+                });
+                // console.log(state.cinemaList)
             }else{
                 Toast(res.msg)
             }

@@ -34,11 +34,10 @@ const actions = {
                 commit({
                     type:'setAddressList',
                     list:res.data.cinema
-                })
+                });
             }else{
-                Toast(res.msg)
+                Toast(res.msg);
             }
-            console.log(res)
         })
 
         Toast.clear();
