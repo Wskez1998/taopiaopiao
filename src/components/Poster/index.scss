@@ -1,0 +1,98 @@
+@import '~@/assets/styles/common/px2rem.scss';
+@import '~@/assets/styles/common/mixins.scss';
+.video-header{
+    margin-bottom: 10px;
+    .poster{
+        background: #000;
+        margin-bottom: -4%;
+        img{
+            width: 100%;
+            height: px2rem(234)
+        }
+    }
+    .show-info{
+        border: 0;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        z-index: 999;
+        background: #fff;
+        min-height: px2rem(148);
+        display: flex;
+        position: relative;
+        box-sizing: border-box;
+        padding: 25px 20px 10px;
+        .poster-wrap{
+            border-radius: 4px;
+            position: relative;
+            img{
+                border-radius: 2px;
+                width: px2rem(88);
+                height: px2rem(130)
+            }
+            span{
+                position: absolute;
+                top: 2px;
+                left: 5px;
+                font-size: 14px;
+                background: #f8f8f8;
+                color: #000;
+                border-radius: 2px;
+                padding: 2px;
+            }
+        }
+        .info-cantainer{
+            width: px2rem(232);
+            padding-left: 15px; 
+            p{
+                text-align: left;
+            }
+            .movie-name{
+                p{
+                    margin-top: 8px;
+                    max-width: px2rem(225);
+                    margin-bottom: 15px;
+                    line-height: 25px;
+                    font-size: 20px;
+                    color: #000;
+                    font-weight: 700;
+                    overflow: hidden;
+                }
+            }
+            .movie-detail{
+                padding-top: 10px;
+                p{
+                    padding-bottom: 8px;
+                    font-size: 13px;
+                    color: #777;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    span{
+                        font-size: 12px;
+                    }
+                    &:last-child{
+                        color: #000;
+                        span{
+                            color: #777
+                        }
+                    }
+                } 
+            }
+        }
+    }
+    .show-remark{
+        background: #fff;
+        padding: 8px 20px 10px;
+        display: flex;
+        height: px2rem(30);
+        line-height: 30px;
+        p{
+            margin-left: 30px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        span{
+            margin-left: 20px;
+        }
+    }
+}
