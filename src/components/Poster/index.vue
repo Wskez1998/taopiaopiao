@@ -6,7 +6,7 @@
         <section class="show-info">
             <div class="poster-wrap">
                 <img :src="filmDetails.poster" alt="" srcset="">
-                <span>{{filmDetails.item.name}}中国巨幕</span>
+                <span>{{FilmType.name}}中国巨幕</span>
             </div>
             <div class="info-cantainer">
                 <div class="movie-name">
@@ -15,7 +15,7 @@
                 <div class="movie-detail">
                     <p>{{filmDetails.category}} {{filmDetails.nation}} / {{filmDetails.runtime}}分钟</p>
                     <p>
-                        2019-07-05 中国大陆上映 
+                        {{preDate}} 中国大陆上映 
                         <span></span>
                     </p>
                     <p>
@@ -34,7 +34,7 @@
                 allow-half
                 void-icon="star"
                 void-color="#eee" />
-            <span>{{filmDetails.grade}}</span>
+            <span>{{filmDetails.grade}}分</span>
         </section>
     </div>
 </template>
@@ -56,6 +56,18 @@ export default {
                 return {}
             }
         },
+        FilmType: {
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+        preDate: {
+            type: String,
+            default() {
+                return '2019-07-05'
+            }
+        }
     },
 
     computed: {

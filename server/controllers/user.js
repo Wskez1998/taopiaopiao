@@ -34,20 +34,30 @@ const postSignIn = (req, res) => {
 //注册
 const postSignUp = (req, res) => {
     const user = new UserModel(req.body);
-    user
-    .save()
-    .then(() => {
+    let username = user.username;
+    UserModel.find({'username': username}).then(data => {
+      if(data.length != 0) {
         res.send({
-            code: 0,
-            msg: "ok"
+          code: -1,
+          msg: '用户名已被注册，请重新输入'
+        })
+      } else {
+        user
+        .save()
+        .then(() => {
+            res.send({
+                code: 0,
+                msg: "ok"
+            });
+        })
+        .catch(error => {
+            res.send({
+                code: -1,
+                msg: error.message
+            });
         });
+      }
     })
-    .catch(error => {
-        res.send({
-            code: -1,
-            msg: error.message
-        });
-    });
 };
 
 //更换头像

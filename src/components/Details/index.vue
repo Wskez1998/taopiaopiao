@@ -86,7 +86,6 @@
                 <a href="" class="allartis">全部评价</a>
             </section>
         </div>
-        <div class="more"></div>
     </div>
 </template>
 
@@ -117,7 +116,6 @@ export default {
                 this.flag = false
             } else {
                 this.$refs.limit.classList.remove('limited');
-                
                 this.flag = true
             }
         }
