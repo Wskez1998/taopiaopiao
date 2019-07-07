@@ -11,10 +11,10 @@ import { mapActions } from 'vuex'
 export default {
   name: 'app',
   methods: {
-    ...mapActions('city', ['getCityList'])
+    ...mapActions('city', ['getCityList']),
   },
   created () {
-    this.getCityList()
+    this.getCityList();
   }
 }
 </script>

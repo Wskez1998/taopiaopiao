@@ -77,6 +77,7 @@ export default {
   },
   created(){
     this.getCinemaList();
+    // console.log(this.CinemaItemList)
   },
   components:{
     Cinemaslist

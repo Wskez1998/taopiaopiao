@@ -12,16 +12,15 @@ const state = {
 };
 
 const getters = {
-  //影片的总页数
+  // 总的页数
   totalPage(state) {
-    return Math.ceil( state.total / state.pageSize )
+    return Math.ceil(state.total / state.pageSize);
   },
-  //影片是否全部加载完成，true 表示加载完成
+
+  // 是否还有更多数据, 为true代表没有更多
   isFinished(state, getters) {
-    return state.pageNum > getters.totalPage
-  },
-
-
+    return state.pageNum > getters.totalPage;
+  }
 };
 
 const mutations = {

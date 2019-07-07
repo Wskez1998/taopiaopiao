@@ -1,75 +1,106 @@
 <template>
     <div class="cinema-detail">
-
-        <div @click="gobackfilm" class="gobackhome">返回</div>
-
-        <div class="header-title">{{ CinemaItemList.name }}</div>
-
-        <div class="cinema-wrap">
-            <div class="cinema-info">
-                <div class="tags">
-                    <div class="tagger" 
-                        v-for="(item,index) in CinemaItemList.services"
+        <div class="cinema-information">
+            <div class="cinema-name">
+                <div class="cinema-name-true">{{CinemaItemList.name}}</div>
+                <div class="cinema-address">
+                    {{ CinemaItemList.address }}
+                </div>
+                <div class="list-status">
+                    <div class="tpp-lbl tpp-lbl-outline-info" 
+                        v-for="(item,index) in CinemaItemList.services" 
                         :key="index"
-                    >{{ item.name }}</div>
-                </div>
-                <div class="address">
-                    <i class="iconfont icon-wode address-left"></i>
-                    <span class="address-text">{{ CinemaItemList.address }}</span>
-                    <i class="iconfont icon-wode address-right"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="cinema-banner">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="item in Fimelistss" :key="item.filmId">
-                        <img :src="item.poster" />
+                    >
+                    {{item.name}}
                     </div>
+                </div>    
+            </div>
+            <div class="go-cna-d">
+                <div class="go-address">
+                    <i class="iconfont icon-wode"></i>
+                </div>
+                <div class="go-card">
+                    <i class="iconfont icon-wode"></i>
                 </div>
             </div>
-            <div class="sanjiaoxing"></div>
         </div>
 
-        <router-view></router-view>
+        <div class="cinema-banners">
+            <a href="https://h5.m.taopiaopiao.com/app/mymovie/pages/bank-active/index.html" class="cardsss">
+                <div class="card-text">
+                    <div class="card-title">联合优惠专区</div>
+                    <div class="card-content">银行、运营商特惠</div>
+                </div>
+                <div class="card-icon">
+                    <i class="iconfont icon-wode"></i>
+                </div>
+            </a>
+        </div>
+
+        <Banner :Imglist='Fimelistss' @getFilmId="newFilmId" />
+
+        <Filmtime :newFilm = "getNewFilm" :cinemalist="Cinematiemlist" />
     </div>
 </template>
 
 <script>
-import Swiper from "swiper";
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
+import Filmtime from '../../components/Filmtime/index';
+import Banner from '../../components/Banner/banner';
 export default {
+    data(){
+        return{
+            newFilm:null,
+            theNewFilmid:null
+        }
+    },
     name:'newcineams',
     computed:{
-        ...mapState('cinemafilem',['CinemaItemList','Fimelistss'])
+        ...mapState('cinemafilem',['CinemaItemList','Fimelistss','Cinematiemlist','theFimeListId','activeName']),
+        getNewFilm(){
+            if(this.newFilm){
+                return this.newFilm[0];
+            }
+        }
+    },
+    watch:{
+        activeName(newVal,oldVal){
+            this.getCinemaTime(this.theNewFilmid)
+        },
     },
     methods:{
-        initSwiper(){
-            this.mySwiper = new Swiper(".swiper-container", {
-                slidesPerView: 4,
-                centeredSlides: true,
-            });
-        },
-        ...mapActions('cinemafilem',['getCinemaItem','getFilmslist']),
+        ...mapActions('cinemafilem',['getCinemaItem','getFilmslist','getCinemaTime']),
         gobackfilm(){
             this.$router.go(-1);
+        },
+        newFilmId(id){
+            this.theNewFilmid = id;
+            this.getCinemaTime(id);
+            this.newFilm = this.Fimelistss.filter(item =>{
+                return item.filmId == id
+            })
         }
     },
     created(){
         this.getCinemaItem();
         this.getFilmslist();
     },
-    mounted() {
-        
+    mounted(){
+        setTimeout(() => {
+            this.getCinemaTime(this.Fimelistss[0].filmId);
+            this.newFilm = this.Fimelistss.filter(item =>{
+                return item.filmId == this.theFimeListId
+            })
+            this.theNewFilmid = this.Fimelistss[0].filmId;
+        }, 1000);
     },
-    updated(){
-        this.initSwiper();
+    components:{
+        Filmtime,
+        Banner
     }
 }
 </script>
 <style lang="scss">
 @import './index';
-@import "~swiper/dist/css/swiper.css";
 </style>
 

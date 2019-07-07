@@ -1,0 +1,39 @@
+@import "~@/assets/styles/common/mixins.scss";
+@import "~@/assets/styles/common/px2rem.scss";
+@import "~swiper/dist/css/swiper.css";
+
+.swiper-container{
+    width: 100%;
+    height: px2rem(135);
+    padding-top: px2rem(10);
+    padding-bottom: px2rem(10);
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    .swiper-wrapper{
+        z-index: -9999;
+        .swiper-slide{
+            background: #fff;
+            height: px2rem(115);
+            transition: 0.5s;
+            >img{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+ 
+.sanjiaoxing{
+    position: absolute;
+    border-bottom: px2rem(10) solid #fff;
+    border-left: px2rem(10) solid transparent;
+    border-right: px2rem(10) solid transparent; 
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.swiper-slide:not(.swiper-slide-active) {
+    transform: scale(0.8);
+}

@@ -102,7 +102,11 @@ export default {
               el: ".swiper-scrollbar"
             }
           : {},
-        autoplay: this.autoplay
+          autoplay: {
+              delay: 2000,
+              stopOnLastSlide: false,
+              disableOnInteraction: false,
+          }
       });
     }
   }

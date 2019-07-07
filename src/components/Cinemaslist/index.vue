@@ -29,10 +29,10 @@
                             退票
                         </div>
                         <div class="tpp-lbl tpp-lbl-outline-info">
-                            3D眼镜收费
+                            儿童票
                         </div>
                         <div class="tpp-lbl tpp-lbl-outline-info">
-                            可停车
+                            停车
                         </div>
                     </div>    
                     <ul class="list-activity">

@@ -2,7 +2,7 @@ import Vue from "vue";
 import router from "./router";
 import store from "./store/index";
 import App from "./App";
-import { Tab, Tabs, Toast, List, Search, DropdownMenu, DropdownItem ,Field, CellGroup, Skeleton  } from "vant";
+import { Tab, Tabs, Toast, List, Search, DropdownMenu, DropdownItem ,Field, CellGroup, Skeleton, Popup, Button  } from "vant";
 import "./assets/styles/base.scss";
 
 Vue.use(Tab)
@@ -14,7 +14,9 @@ Vue.use(Tab)
   .use(DropdownItem)
   .use(Field)
   .use(CellGroup)
-  .use(Skeleton);
+  .use(Skeleton)
+  .use(Popup)
+  .use(Button);
 
   router.beforeEach((to, from, next) => {
     // to and from are both route objects. must call `next`.

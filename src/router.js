@@ -44,13 +44,13 @@ export default new Router({
       path:'/cinema/:id/film',
       name:'cinemamoney',
       component:()=>import('./views/cinema/index.vue'),
-      children:[
-        {
-          path:':id',
-          name:'filmslist',
-          component:()=>import('./views/cinema/filemslsit.vue')
-        }
-      ]
+      // children:[
+      //   {
+      //     path:':id',
+      //     name:'filmslist',
+      //     component:()=>import('./views/cinema/filemslsit.vue')
+      //   }
+      // ]
     },
     {
       path:'/cinema/:id',
