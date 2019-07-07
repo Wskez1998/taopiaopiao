@@ -37,7 +37,7 @@ export default new Router({
       component: () => import("./views/city/index.vue") },
     { 
       name: 'film',
-      path: "/film", 
+      path: "/film/:id", 
       component: () => import("./views/film/index.vue") 
     },
     {

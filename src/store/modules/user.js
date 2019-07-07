@@ -26,7 +26,7 @@ const actions = {
   getUserInfo({commit}, payload) {
     Toast.loading({ duration: 0, message: "登录中..." });
     axios
-      .post('http://localhost:7777/sign-in',payload)
+      .post('http://123.207.88.163:7777/sign-in',payload)
         .then((response) => {
           Toast.clear()
           let res = response.data
@@ -61,7 +61,7 @@ const actions = {
   signUp({commit}, payload) {
     Toast.loading({ duration: 0, message: "注册中..." });
     axios
-      .post('http://localhost:7777/sign-up',payload)
+      .post('http://123.207.88.163:7777/sign-up',payload)
         .then((response) => {
           Toast.clear()
           let res = response.data
@@ -80,7 +80,7 @@ const actions = {
     formData.append('userId', state.userInfo.userId);
     formData.append('avatar', event.target.files[0]);
     axios
-      .post('http://localhost:7777/user/profile', formData, {
+      .post('http://123.207.88.163:7777/user/profile', formData, {
         headers: {
           "content-type": "multipart/form-data"
         }

@@ -3,12 +3,7 @@
     <ul>
       <li class="item" v-for="(item, index) in FilmList" :key="index">
         <router-link
-          :to="{
-            name: 'film',
-            params: {
-              filmId: item.filmId
-            }
-          }"
+          :to="'/film/' + item.filmId"
         >
           <div class="poster">
             <img :src="item.poster" alt />

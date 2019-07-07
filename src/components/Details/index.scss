@@ -1,0 +1,243 @@
+@import '~@/assets/styles/common/px2rem.scss';
+@import '~@/assets/styles/common/mixins.scss';
+.film-detail{
+    background: #fff;
+    .descript{
+        .show-dec{
+            @include border-bottom;
+            width: 100%;
+            padding-top: 15px;
+            background: #fff;
+            p{
+                display: inline-block;
+                font-size: 16px;
+                text-align: justify;
+                margin-bottom: 14px;
+                line-height: 21px;
+                color: #000;
+                overflow: hidden;
+                margin-left: 16px;
+                margin-right: 16px;
+                position: relative;
+                white-space: normal;
+                height: px2rem(85);
+                span{
+                    display: inline-block;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    color: #1394f3;
+                    width: px2rem(52);
+                    text-align: right;
+                    background: #fff
+                }
+            }
+            .limited{
+                overflow: initial;
+                height: 100%
+            }
+        }
+        .artisis{
+            @include border-bottom;
+            background-color: #fff;
+            position: relative;
+            padding-bottom: 20px;
+            h2{
+                font-size: 16px;
+                line-height: 37px;
+                padding: px2rem(9) px2rem(16);
+                color: #000;
+                font-weight: 400;
+            }
+            .artisis-container{
+                margin-left: 16px;
+                position: relative;
+                overflow-x: scroll; 
+                display: flex;
+                a{
+                    display: block;
+                    width: px2rem(87);
+                    vertical-align: top;
+                    text-align: center;
+                    text-decoration: none;
+                    margin-right: 2px;
+                    img{
+                        display: block;
+                        width: px2rem(87);
+                        height: px2rem(120);
+                        background: #ccc;
+                        overflow: hidden;
+                        margin: 0 auto;
+                        border-radius: 2px;
+                    }
+                    dl{
+                        margin-top: 8px;
+                        dt{
+                            display: block;
+                            color: #000;
+                            font-size: 16px;
+                            line-height: 23px;
+                            word-wrap: break-word;
+                            position: relative;
+                            width: auto;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            max-width: px2rem(87);
+                        }
+                        dd{
+                            display: block;
+                            white-space: nowrap !important;
+                            height: px2rem(18);
+                            line-height: 18px;
+                            color: #666;
+                            font-size: 14px;
+                            max-width: px2rem(87)
+                        }
+                    }
+                }
+            }
+            .allartis{
+                font-size: 15px;
+                color: #1394f3;
+                text-align: center;
+                display: block;
+                margin-top: 16px;
+                padding-bottom: 16px;
+            }
+        }
+        .albums{
+            .albums-container{
+                a{
+                    width: px2rem(150);
+                    height: px2rem(81);
+                    img{
+                        width: px2rem(150);
+                        height: px2rem(81)
+                    }
+                }
+            }
+
+        }
+        .show-statistics{
+            .statistics-container{
+                display: flex;
+                justify-content: space-around;
+                dl{
+                    text-align: center;
+                    dd{
+                        font-size: 30px;
+                        color: #000;
+                        line-height: 48px;
+                        font-weight: 400;
+                    }
+                    dt{
+                        font-size: 12px;
+                        color: #999;
+                    }
+                }
+                .statisticsall{
+                    margin-top: 10px;
+                }
+            }
+        }
+        .appraise{
+            ul{
+                padding: 0 px2rem(15);
+                overflow: hidden;
+                li{
+                    box-sizing: content-box;
+                    @include round-border;
+                    float: left;
+                    margin-right: 8px;
+                    margin-bottom: 10px;
+                    padding: px2rem(7) px2rem(15);
+                    text-align: left;
+                    line-height: 14px;
+                    font-size: 14px;
+                    color: #000;
+                    position: relative;
+                }
+            }
+            .artisis-container{
+                margin-left: 16px;
+                .appinner{
+                    position: relative;
+                    margin-top: 9px;
+                    margin-bottom: 9px;
+                    padding-bottom: 9px;
+                    .appinner-title{
+                        display: flex;
+                        box-align: center;
+                        align-items: center;
+                        margin-bottom: px2rem(10);
+                        .title-img{
+                            border: 0;
+                            width: px2rem(45);
+                            height: px2rem(45);
+                            margin-left: 15px;
+                            border-radius: 50%;
+                        }
+                        .username{
+                            p{
+                                max-width: px2rem(150);
+                                font-size: 15px;
+                                font-weight: 700;
+                                display: inline-block;
+                                line-height: 22px;
+                                color: #000;
+                                vertical-align: middle;
+                                word-break: break-all;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            section{
+                                display: flex;
+                                align-items: center;
+                                i{
+                                    line-height: 23px;
+                                    color: #ff2e62;
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                }
+                                span{
+                                    margin-left: 5px;
+                                    line-height: 23px;
+                                    color: #fea54c;
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .app-content{
+                        padding-right: px2rem(16);
+                        padding-bottom: px2rem(15);
+                        dd{
+                            font-size: 14px;
+                            line-height: 18px;
+                            color: #000;
+                        }
+                        dt{
+                            display: flex;
+                            margin-top: 9px;
+                            justify-content: space-between;
+                            align-items: center;
+                            span{
+                                font-size: 12px;
+                                color: #bcbcbc;
+                            }
+                            div{
+                                display: flex;
+                                justify-content: space-between;
+                                i{
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

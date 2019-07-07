@@ -7,6 +7,7 @@ import cinema from './modules/cinema';
 import user from './modules/user';
 import address from './modules/address';
 import cinemafilem from './modules/cinemafilem';
+import filmDetail from './modules/filmDetail';
 
 
 Vue.use(Vuex)
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     cinema,
     user,
     address,
-    cinemafilem
+    cinemafilem,
+    filmDetail
   }
 })
