@@ -17,10 +17,10 @@
             </div>
             <div class="go-cna-d">
                 <div class="go-address">
-                    <i class="iconfont icon-wode"></i>
+                    <i class="iconfont icon-location"></i>
                 </div>
                 <div class="go-card">
-                    <i class="iconfont icon-wode"></i>
+                    <i class="iconfont icon-biaoqian"></i>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <div class="card-content">银行、运营商特惠</div>
                 </div>
                 <div class="card-icon">
-                    <i class="iconfont icon-wode"></i>
+                    <i class="iconfont icon-card"></i>
                 </div>
             </a>
         </div>

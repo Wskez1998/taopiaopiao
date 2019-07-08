@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <keep-alive :include="['cinemas']">
+    <!-- <keep-alive :include="['cinemas']"> -->
       <router-view></router-view>
-    </keep-alive>
+    <!-- </keep-alive> -->
     <Tabbar :tabs="tabs" />
   </div>
 </template>
@@ -14,8 +14,8 @@ export default {
   data() {
     return {
       tabs: [
-        { to: "/films", name: "电影", icon: "icon-wode" },
-        { to: "/cinemas", name: "影院", icon: "icon-wode" },
+        { to: "/films", name: "电影", icon: "icon-shipin" },
+        { to: "/cinemas", name: "影院", icon: "icon-yingyuan" },
         { to: "/center", name: "我的", icon: "icon-wode" }
       ]
     };

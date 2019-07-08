@@ -16,7 +16,7 @@
           </van-dropdown-menu>
 
           <div class="selector-search">
-            放大
+            <i class="iconfont icon-iconfontfangdajing"></i>
           </div>
 
         </div>
@@ -43,6 +43,7 @@ export default {
         { text: '最近去过', value: 0 },
         { text: '离我最近', value: 1 },
       ],
+      cityId: window.localStorage.getItem('curCityId')
     }
   },
   computed:{
@@ -67,6 +68,9 @@ export default {
   watch:{
     curValue(newVal,oldVal){
       this.$refs.list.$el.scrollTop = 0;
+    },
+    cityId(newVal,oldVal){
+      this.getCinemaList();
     }
   },
   methods:{
@@ -77,7 +81,6 @@ export default {
   },
   created(){
     this.getCinemaList();
-    // console.log(this.CinemaItemList)
   },
   components:{
     Cinemaslist

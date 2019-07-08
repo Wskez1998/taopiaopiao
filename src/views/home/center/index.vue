@@ -12,8 +12,8 @@
     </router-link>
     <div class="center-menu">
       <div class="ticket">
-        <router-link to="/card"><i class="iconfont icon-wode"></i>电影票</router-link>
-        <router-link to="/card"><i class="iconfont icon-wode"></i>优惠券</router-link>
+        <router-link to="/card"><i class="iconfont icon-shipin"></i>电影票</router-link>
+        <router-link to="/card"><i class="iconfont icon-youhuijuan"></i>优惠券</router-link>
       </div>
       <div class="menus card">
         <router-link to="/card">

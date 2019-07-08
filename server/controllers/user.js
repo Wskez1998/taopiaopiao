@@ -67,7 +67,7 @@ const postUpdAvatar = (req, res) => {
     let fileData = fs.readFileSync(req.file.path);
     fs.writeFileSync(newPath, fileData);
     let userId = req.body.userId;
-    let newAvatar = `http://localhost:7777/${newFileName}`;
+    let newAvatar = `http://123.207.88.163:7777/${newFileName}`;
     UserModel.updateOne(
       {
         _id: userId

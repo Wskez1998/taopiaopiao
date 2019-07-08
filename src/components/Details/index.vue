@@ -76,8 +76,8 @@
                             <dt>
                                 <span>07-04 22:39</span>
                                 <div>
-                                    <i class="iconfont icon-wode"></i>
-                                    <i class="iconfont icon-wode"></i>
+                                    <i class="iconfont icon-dianzan11"></i>
+                                    <i class="iconfont icon-xiaoxi-copy"></i>
                                 </div>
                             </dt>
                         </dl>

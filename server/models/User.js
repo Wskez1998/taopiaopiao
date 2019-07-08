@@ -15,7 +15,7 @@ const userSchema = new mongoDB.Schema({
     },
     avatar: {
         type: String,
-        default: 'http://localhost:7777/avatar.jpg'
+        default: 'http://123.207.88.163:7777/avatar.jpg'
     },
     relos: {
         type: Number,
