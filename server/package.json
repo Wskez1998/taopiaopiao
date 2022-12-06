@@ -9,7 +9,7 @@
   "author": "发菜",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "mongoose": "^5.6.3",
     "multer": "^1.4.1"
   }
